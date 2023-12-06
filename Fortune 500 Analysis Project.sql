@@ -1,4 +1,4 @@
-#This analysis utilized the following Fortune 500 dataset:
+/* This analysis utilized the following Fortune 500 dataset*/
 
 CREATE TABLE fortune_companies (
     company_id INTEGER PRIMARY KEY,
@@ -59,50 +59,45 @@ VALUES
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
 # Analysis: 
-**Step 1: Initial Exploration**
+/* Initial Exploration*/
 
-```sql
 SELECT * 
 FROM fortune_companies;
-```
 
-What are the unique company names in the database?
-
-```sql
+/*What are the unique company names in the database?*/
 SELECT DISTINCT company_name 
 FROM  fortune_companies;
-```
 
-How many unique industries are represented in the database?
 
-```sql
-SELECT COUNT(DISTINCT industry) AS unique_industries FROM fortune_companies;
-```
+/*How many unique industries are represented in the database?*/
 
-What is the total revenue across all companies in the database?
+SELECT COUNT(DISTINCT industry) 
+AS unique_industries 
+FROM fortune_companies;
+ 
+/*What is the total revenue across all companies in the database?*/
 
-```sql
-SELECT SUM(revenue) AS total_revenue FROM fortune_companies;
-```
+SELECT SUM(revenue) 
+AS total_revenue 
+FROM fortune_companies;
 
-A list of companies with revenues exceeding a certain threshold?
+/*A list of companies with revenues exceeding a certain threshold?*/
 
-```sql
-SELECT company_name, revenue FROM fortune_companies WHERE revenue < 100000;
-```
+SELECT company_name, revenue F
+FROM fortune_companies 
+WHERE revenue < 100000;
 
-What is the average number of employees per company?
 
-SELECT AVG(employees) AS avg_employees_per_company FROM fortune_companies;
+/*What is the average number of employees per company?*/
 
-```sql
-SELECT AVG(employees) AS avg_employees_per_company FROM fortune_companies;
-```
+SELECT AVG(employees) 
+AS avg_employees_per_company 
+FROM fortune_companies;
 
-Which companies have the highest number of employees?
+/*Which companies have the highest number of employees?*/
 
-```sql
-SELECT company_name, employees FROM fortune_companies ORDER BY employees DESC LIMIT 5;
-```
+SELECT company_name, employees 
+FROM fortune_companies 
+ORDER BY employees DESC LIMIT 5;
 
-How many companies offer healthcare benefits?
+
