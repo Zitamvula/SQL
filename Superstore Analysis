@@ -1,3 +1,5 @@
+/*This project utilizes the following Superstore data: */
+    
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
     item_name TEXT,
@@ -25,11 +27,12 @@ VALUES
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
-Order items by price
+/*Order items by price*/
+    
 SELECT * FROM superstore
 ORDER BY price;
 
-Show statistics about item prices:
+/*Show statistics about item prices: */
 
 SELECT
   COUNT(*) AS total_items,
@@ -41,7 +44,7 @@ FROM superstore;
 
 
 
-Show statistics about the price for items in the category "Kitchen Supplies":
+/* Show statistics about the price for items in the category "Kitchen Supplies":*/
 
 
 SELECT
@@ -54,7 +57,7 @@ FROM superstore
 WHERE category = 'Kitchen Supplies';
 
 
-Calculate the total value of all items in stock by summing up their prices.
+/*Calculate the total value of all items in stock by summing up their prices.*/
 
 SELECT
   SUM(price * stock_quantity) AS total_value_in_stock
