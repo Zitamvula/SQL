@@ -75,6 +75,26 @@ GROUP BY mode, key
 ORDER BY avg_loudness DESC
 LIMIT 1;
 
+Calculated the average popularity for the artists in the Spotify data table. 
+Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+WITH ArtistPopularityCTE AS (
+    SELECT
+        artist_name,
+        AVG(popularity) AS avg_popularity
+    FROM
+        BIT_DB.Spotifydata
+    GROUP BY
+        artist_name
+)
 
+SELECT
+    artist_name,
+    avg_popularity,
+    CASE
+        WHEN avg_popularity >= 90 THEN 'Top Star'
+        ELSE 'Regular'
+    END AS popularity_label
+FROM
+    ArtistPopularityCTE;
 
 
